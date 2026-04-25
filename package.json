@@ -3,32 +3,28 @@
   "version": "0.1.0",
   "description": "Smart contracts for Okkult Protocol",
   "scripts": {
-    "compile":  "hardhat compile",
-    "test":     "hardhat test",
-    "coverage": "hardhat coverage",
-    "deploy":   "hardhat run scripts/deploy.ts --network mainnet",
-    "verify":   "hardhat run scripts/verify.ts --network mainnet",
-    "lint":     "solhint 'contracts/**/*.sol'"
+    "compile": "hardhat compile",
+    "test":    "hardhat test",
+    "coverage":"hardhat coverage",
+    "lint":    "solhint 'contracts/**/*.sol'",
+    "clean":   "hardhat clean"
   },
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^5.0.0",
-    "@nomicfoundation/hardhat-chai-matchers": "^2.0.0",
-    "@openzeppelin/contracts": "^5.0.0",
-    "hardhat":          "^2.22.0",
-    "solidity-coverage": "^0.8.0",
-    "solhint":           "^4.0.0",
-    "dotenv":            "^16.0.0",
-    "typescript":        "^5.4.0",
-    "ts-node":           "^10.9.0",
-    "@types/node":       "^20.0.0",
-    "chai":              "^4.3.0",
-    "ethers":            "^6.13.0"
+    "@openzeppelin/contracts":          "^5.0.0",
+    "hardhat":                          "^2.22.0",
+    "solidity-coverage":                "^0.8.0",
+    "solhint":                          "^3.6.2",
+    "dotenv":                           "^16.0.0",
+    "typescript":                       "^5.4.0",
+    "ts-node":                          "^10.9.0",
+    "@types/node":                      "^20.0.0",
+    "chai":                             "^4.3.0",
+    "ethers":                           "^6.13.0"
   },
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url":  "https://github.com/okkult-dev/okkult-contracts"
-  },
-  "homepage": "https://okkult.io",
-  "author":   "Okkult Protocol"
+    "url": "https://github.com/okkult-dev/okkult-contracts"
+  }
 }
