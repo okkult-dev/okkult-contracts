@@ -57,21 +57,21 @@ contract MyProtocol is ComplianceGate {
 
 ## Deployed Contracts
 
-### Ethereum Mainnet
+### Ethereum Mainnet — Live
 
-| Contract | Address | Etherscan |
-|----------|---------|-----------|
-| OkkultShield | `0xDAB93E727B2382972C0863a7Ac22e8b80bfBbC88` | [View ↗](https://etherscan.io/address/0xDAB93E727B2382972C0863a7Ac22e8b80bfBbC88) |
-| ShieldVerifier | `0xCe5ac79201892C60EaaeD69607354721219b5737` | [View ↗](https://etherscan.io/address/0xCe5ac79201892C60EaaeD69607354721219b5737) |
-| UnshieldVerifier | `0xFD7888c3C0f47bd8D3C8699075Cf15b487373482` | [View ↗](https://etherscan.io/address/0xFD7888c3C0f47bd8D3C8699075Cf15b487373482) |
-| TransferVerifier | `0x20dE927843cdc0CEfd3c82510cF835982c4313EE` | [View ↗](https://etherscan.io/address/0x20dE927843cdc0CEfd3c82510cF835982c4313EE) |
-| OkkultVerifier | `pending` | — |
-| ComplianceTree | `pending` | — |
-| NullifierRegistry | `pending` | — |
-| OkkultVote | `pending` | — |
-| OkkultRelay | `pending` | — |
-| $KULT Token | `pending` | — |
+| Contract | ENS | Address | Status |
+|----------|-----|---------|--------|
+| OkkultShield v4 | shield.okkult.eth | `0x0377d05573acF3d7e0C2d1E13dCC47537143FC8A` | ✅ Active |
+| ShieldVerifier | verifier.okkult.eth | `0x8599c7665f4f8cb6ed2e80fbcb91ca57aefa437c` | ✅ Active |
+| UnshieldVerifier | unshield.okkult.eth | `0x0bf8136db4c13925724f4f7f436911e2b285d7c9` | ✅ Active |
+| TransferVerifier | transfer.okkult.eth | `0xe6b364ba301fe4dd3c70b60c36f0edd14324e4e8` | ✅ Active |
+| RailgunAdapter | railgun.okkult.eth | `0xDe8d4FaD0c6b283f6FC997858388F6C995928065` | ✅ Active |
 
+### Relay / Treasury
+
+| Role | Address |
+|------|---------|
+| Treasury | `0x641ca4b49098e11fe4735c58bafD4bbB781Eba49` |
 ---
 
 ## Install
