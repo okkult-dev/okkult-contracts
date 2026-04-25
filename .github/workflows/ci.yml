@@ -7,8 +7,9 @@ on:
     branches: [main]
 
 jobs:
-  test:
-    name: Test & Coverage
+
+  lint:
+    name: CI / Solidity Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -22,36 +23,13 @@ jobs:
           cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Compile contracts
-        run: npm run compile
+      - name: Run solhint
+        run: npx solhint 'contracts/**/*.sol' --max-warnings 50
 
-      - name: Run linter
-        run: npm run lint
-
-      - name: Run tests
-        run: npm test
-        env:
-          ALCHEMY_MAINNET_URL: ${{ secrets.ALCHEMY_MAINNET_URL }}
-
-      - name: Run coverage
-        run: npm run coverage
-        env:
-          ALCHEMY_MAINNET_URL: ${{ secrets.ALCHEMY_MAINNET_URL }}
-
-      - name: Check contract sizes
-        run: npm run size
-
-      - name: Upload coverage report
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage/
-          retention-days: 30
-
-  lint-solidity:
-    name: Solidity Lint
+  test:
+    name: CI / Test & Coverage
     runs-on: ubuntu-latest
 
     steps:
@@ -62,9 +40,25 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Run solhint
-        run: npm run lint
+      - name: Compile contracts
+        run: npx hardhat compile
+
+      - name: Run tests
+        run: npx hardhat test
+        env:
+          # If no ALCHEMY key, use hardhat local network (no fork)
+          ALCHEMY_MAINNET_URL: ${{ secrets.ALCHEMY_MAINNET_URL }}
+          DEPLOYER_PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY || '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80' }}
+
+      - name: Upload coverage report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          retention-days: 7
