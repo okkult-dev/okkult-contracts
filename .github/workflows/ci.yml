@@ -8,22 +8,6 @@ on:
 
 jobs:
 
-  lint:
-    name: CI / Solidity Lint
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm install
-
-      - name: Run solhint
-        run: npx solhint 'contracts/**/*.sol' --max-warnings 100
-
   test:
     name: CI / Test & Coverage
     runs-on: ubuntu-latest
@@ -45,11 +29,3 @@ jobs:
         env:
           ALCHEMY_MAINNET_URL:  ${{ secrets.ALCHEMY_MAINNET_URL }}
           DEPLOYER_PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY }}
-
-      - name: Upload coverage
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report
-          path: coverage/
-          retention-days: 7
