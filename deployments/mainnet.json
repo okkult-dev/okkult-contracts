@@ -1,0 +1,30 @@
+{
+  "network": "mainnet",
+  "chainId": 1,
+  "deployedAt": "2026-04-25",
+  "treasury": "0x641ca4b49098e11fe4735c58bafD4bbB781Eba49",
+  "contracts": {
+    "okkultShield":      "0x0377d05573acF3d7e0C2d1E13dCC47537143FC8A",
+    "shieldVerifier":    "0x8599c7665f4f8cb6ed2e80fbcb91ca57aefa437c",
+    "unshieldVerifier":  "0x0bf8136db4c13925724f4f7f436911e2b285d7c9",
+    "transferVerifier":  "0xe6b364ba301fe4dd3c70b60c36f0edd14324e4e8",
+    "railgunAdapter":    "0xDe8d4FaD0c6b283f6FC997858388F6C995928065",
+    "okkultVerifier":    "pending",
+    "complianceTree":    "pending",
+    "nullifierRegistry": "pending",
+    "okkultVote":        "pending",
+    "okkultRelay":       "pending",
+    "kultToken":         "pending"
+  },
+  "ens": {
+    "shield.okkult.eth":  "0x0377d05573acF3d7e0C2d1E13dCC47537143FC8A",
+    "railgun.okkult.eth": "0xDe8d4FaD0c6b283f6FC997858388F6C995928065"
+  },
+  "tokens": {
+    "USDC": "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+    "WETH": "0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2",
+    "DAI":  "0x6B175474E89094C44Da98b954EedeAC495271d0F",
+    "WBTC": "0x2260FAC5E5542a773Aa44fBCfeDf7C193bc2C599",
+    "USDT": "0xdAC17F958D2ee523a2206206994597C13D831ec7"
+  }
+}
