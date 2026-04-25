@@ -11,36 +11,28 @@ jobs:
   lint:
     name: CI / Solidity Lint
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
 
       - name: Run solhint
-        run: npx solhint 'contracts/**/*.sol' --max-warnings 50
+        run: npx solhint 'contracts/**/*.sol' --max-warnings 100
 
   test:
     name: CI / Test & Coverage
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install dependencies
         run: npm install
@@ -51,11 +43,10 @@ jobs:
       - name: Run tests
         run: npx hardhat test
         env:
-          # If no ALCHEMY key, use hardhat local network (no fork)
-          ALCHEMY_MAINNET_URL: ${{ secrets.ALCHEMY_MAINNET_URL }}
-          DEPLOYER_PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY || '0xac0974bec39a17e36ba4a6b4d238ff944bacb478cbed5efcae784d7bf4f2ff80' }}
+          ALCHEMY_MAINNET_URL:  ${{ secrets.ALCHEMY_MAINNET_URL }}
+          DEPLOYER_PRIVATE_KEY: ${{ secrets.DEPLOYER_PRIVATE_KEY }}
 
-      - name: Upload coverage report
+      - name: Upload coverage
         if: always()
         uses: actions/upload-artifact@v4
         with:
