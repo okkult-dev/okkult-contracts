@@ -1,0 +1,28 @@
+dataSources:
+  - kind: ethereum
+    name: OkkultShield
+    network: mainnet
+    source:
+      address: "0x0377d05573acF3d7e0C2d1E13dCC47537143FC8A"
+      abi: OkkultShield
+      startBlock: 22340000
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - ShieldEvent
+        - UnshieldEvent
+        - PrivateTransferEvent
+        - ProtocolStats
+      abis:
+        - name: OkkultShield
+          file: ./abis/OkkultShield.json
+      eventHandlers:
+        - event: Shielded(indexed bytes32,indexed uint256,address,uint256)
+          handler: handleShielded
+        - event: Unshielded(indexed bytes32,indexed address,address,uint256)
+          handler: handleUnshielded
+        - event: PrivateTransfer(indexed bytes32,indexed bytes32,indexed bytes32)
+          handler: handlePrivateTransfer
+      file: ./src/okkult-shield.ts
